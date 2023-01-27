@@ -25,6 +25,9 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
            | mkdir staging && cp target/*.war staging
+           
+    - name: creating a directory for copying war file
+      run:  mkdir staging && cp target/*.war staging
     - name: Downloading
       uses: actions/upload-artifact@v2
       with:

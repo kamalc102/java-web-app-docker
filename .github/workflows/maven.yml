@@ -24,5 +24,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+           mkdir staging && cp target/*.war
+    - name: Downloading
+      uses: actions/upload-artifacts@v2
+      with:
+        name: Upload Artifacts
+        path: staging
       
       
